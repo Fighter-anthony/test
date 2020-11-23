@@ -1,0 +1,37 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      <ion-title size="large">{{id}}</ion-title>
+
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">{{id}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+   
+<ion-content   >
+	
+	<!-- <div style="height: 500px;width: 100%;overflow: hidden;transition: all 0.1s;margin-top: 50px;" (swiped)="checking($event)" appSelect>
+	<ion-card *ngIf="frame!==undefined" >
+    
+    	<img src="{{frame.srcHD}}" style="height: 500px;">	
+    	
+    </ion-card>
+   </div>  --> 
+   <div *ngFor="let item of photos;index as i">	
+   <div  [ngClass]="{'frames': i != 1, 'frame1':i == 1 }"  (swiped)="checking($event)" appSelect>
+	<ion-card *ngIf="item!==undefined" >
+    
+    	<img src="{{item.srcHD}}" style="height: 500px;">	
+    	
+    </ion-card>
+   </div>  
+  </div>
+</ion-content>

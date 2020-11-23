@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-searchbar placeholder='Search Models' (ionChange)="search($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Models</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-segment (ionChange)="segmentChanged($event)">
+  <ion-segment-button value="Updated">
+    <ion-label>Updated</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="Selected">
+    <ion-label>Selected</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="Newbies">
+    <ion-label>Newbies</ion-label>
+  </ion-segment-button>
+</ion-segment>
+
+  <div id="container">
+    <div  class="model"  *ngFor="let item of filterlist" >
+      <div class="modelContainer">
+        <img src="{{item.dp}}" class="modelpic" (click)='gotoSelect(item.username)'>
+      </div>
+      <br>{{item.username}}<br>
+      <span style="color:darkblue;">
+        {{item.datestr}}
+      </span>
+        <br>
+      Update Now
+    </div>
+ 
+</div>
+</ion-content>
